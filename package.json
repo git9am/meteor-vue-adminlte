@@ -2,7 +2,7 @@
   "name": "meteor-vue-adminlte",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,6 +10,8 @@
   "license": "MIT",
   "dependencies": {
     "vue": "^2.2.6",
-    "vue-meteor-tracker": "^1.2.1"
+    "vue-i18n": "^6.1.1",
+    "vue-meteor-tracker": "^1.2.1",
+    "vue-router": "^2.4.0"
   }
 }
