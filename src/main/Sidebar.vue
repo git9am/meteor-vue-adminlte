@@ -33,7 +33,7 @@
 </template>
 
 <script>
-  import { menus } from '../../src/routes';
+  // import { menus } from '../../src/routes';
 
   export default {
     name: 'sidebar',

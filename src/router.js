@@ -1,10 +1,12 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import routes from '../src/routes';
 
 Vue.use(VueRouter);
-export default new VueRouter({
-  mode: 'history',
-  base: __dirname,
-  routes,
-});
+
+export default function router(routes) {
+  return new VueRouter({
+    mode: 'history',
+    base: __dirname,
+    routes,
+  });
+};

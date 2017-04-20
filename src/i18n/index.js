@@ -1,15 +1,14 @@
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
-import i18n from '../../i18n';
 
 Vue.use(VueI18n);
 
-Vue.config.lang = 'en';
-
-Object.keys(i18n).forEach((lang) => {
-  Vue.locale(lang, i18n[lang]);
-});
-
+export default function i18n(messages) {
+  return new VueI18n({
+    locale: 'en',
+    messages,
+  });
+};
 
 // const storage = window.localStorage
 // const index = storage.getItem('indexLang')
