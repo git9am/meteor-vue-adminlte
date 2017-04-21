@@ -21,7 +21,7 @@ export default function(opts) {
 
   new Vue({
     i18n: i18n(opts.i18n),
-    router: router(opts.routes),
+    router: router(opts.routes, opts.beforeEach),
     components: {
       Sidebar,
       UserMenu,
