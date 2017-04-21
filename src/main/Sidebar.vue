@@ -33,21 +33,19 @@
 </template>
 
 <script>
-  import { menus } from '../';
-
   export default {
     name: 'sidebar',
+    props: ['menus'],
     meteor: {
       data: {
-        user () {
+        user() {
           return Meteor.user() || {};
         },
       },
     },
-    data () {
+    data() {
       return {
         route: this.$route.name,
-        menus,
       };
     },
     computed: {

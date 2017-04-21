@@ -14,11 +14,7 @@ Vue.config.meteor.subscribe = function(...args) {
   return subsCache.subscribe(...args);
 };
 
-export const menus = [];
-
 export default function(opts) {
-  opts.menus.forEach(m => menus.push(m));
-
   new Vue({
     i18n: i18n(opts.i18n),
     router: router(opts.routes, opts.beforeEach),
@@ -26,6 +22,11 @@ export default function(opts) {
       Sidebar,
       UserMenu,
       ContentHeader,
+    },
+    meteor: {
+      data: {
+        menus: opts.menus,
+      },
     },
     methods: {
       toggleSidebar() {
