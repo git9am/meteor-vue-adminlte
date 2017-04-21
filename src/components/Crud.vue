@@ -15,9 +15,11 @@
     </modal>
 
     <modal :id="'modal-delete-'+id" :title="$t('crud.title.delete')+title">
-      <slot name="delete">
-        <p>{{$t('crud.delete')}}{{title.toLowerCase()}}?</p>
-      </slot>
+      <div slot="body">
+        <slot name="delete">
+          <p>{{$t('crud.delete')}}{{title.toLowerCase()}}?</p>
+        </slot>
+      </div>
       <div slot="footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal" @click="remove()">{{$t('btn.delete')}}</button>
       </div>
