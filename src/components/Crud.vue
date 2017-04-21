@@ -2,14 +2,14 @@
   <div>
     <modal :id="'modal-add-'+id" :title="$t('crud.title.add')+title">
       <div :id="'insert-'+id"></div>
-      <!-- <div slot="footer-buttons">
+      <!-- <div slot="footer">
         <button type="button" class="btn btn-info" data-dismiss="modal" @click="upsert()">{{$t('btn.confirm')}}</button>
       </div> -->
     </modal>
 
     <modal :id="'modal-edit-'+id" :title="$t('crud.title.edit')+title">
       <div :id="'update-'+id"></div>
-      <!-- <div slot="footer-buttons">
+      <!-- <div slot="footer">
         <button type="button" class="btn btn-info" data-dismiss="modal" @click="upsert()">{{$t('btn.confirm')}}</button>
       </div> -->
     </modal>
@@ -18,14 +18,14 @@
       <slot name="delete">
         <p>{{$t('crud.delete')}}{{title.toLowerCase()}}?</p>
       </slot>
-      <div slot="footer-buttons">
+      <div slot="footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal" @click="remove()">{{$t('btn.delete')}}</button>
       </div>
     </modal>
 
     <modal :id="'modal-warning-'+id" title="Warning!">
       <slot name="delete-warning"></slot>
-      <div slot="footer-buttons">
+      <div slot="footer">
         <button type="button" class="btn btn-info" data-dismiss="modal">OK</button>
       </div>
     </modal>
@@ -43,7 +43,7 @@
     },
     mounted() {
       this.insertForm = Blaze.renderWithData(
-        Template.quickForm,
+        Template.form,
         () => ({
           collection: MeteorCollections[this.table],
           id: 'form-insert-'+this.id,
@@ -53,7 +53,7 @@
         document.getElementById('insert-' + this.id)
       );
       this.updateForm = Blaze.renderWithData(
-        Template.quickForm,
+        Template.form,
         () => ({
           collection: MeteorCollections[this.table],
           id: 'form-update-'+this.id,

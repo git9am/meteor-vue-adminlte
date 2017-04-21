@@ -12,14 +12,16 @@
           <h4 class="modal-title">{{title}}</h4>
         </div>
 
-        <div class="modal-body">
-          <slot></slot>
-        </div>
+        <slot>
+          <div class="modal-body">
+            <slot name="body"></slot>
+          </div>
 
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">{{$t('btn.cancel')}}</button>
-          <slot name="footer-buttons"></slot>
-        </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">{{$t('btn.cancel')}}</button>
+            <slot name="footer"></slot>
+          </div>
+        </slot>
       </div>
     </div>
   </div>
