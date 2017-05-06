@@ -20,7 +20,7 @@
           </router-link>
         </div>
         <div class="pull-right">
-          <button onclick="Meteor.logout();location.href='/'" class="btn btn-default btn-flat">{{$t('sign_out')}}</button>
+          <button @click="logout" class="btn btn-default btn-flat">{{ this.loading ? 'Logging Out...' : $t('sign_out')}}</button>
         </div>
       </li>
     </ul>
@@ -39,8 +39,15 @@
     },
     data () {
       return {
-        route: this.$route.name
+        route: this.$route.name,
+        loading: false,
       };
+    },
+    methods: {
+      logout() {
+        Meteor.logout();
+        this.loading = true;
+      },
     },
     computed: {
       username () { return this.user.username || '(username)'; },
