@@ -1,6 +1,6 @@
 <template>
   <div>
-    <box size="col-md-12" :title="tableTitle">
+    <box :size="size" :title="tableTitle">
       <div slot="box-tools">
         <slot name="tools"></slot>
         <button
@@ -25,11 +25,16 @@
     name: 'TabularTable',
     props: {
       id: String,
+      size: {
+        type: String,
+        default: 'col-md-12',
+      },
       name: String,
       table: String,
       tableTitle: String,
       addable: Boolean,
       subscribes: Array,
+      groupBy: String,
     },
     mounted() {
       this.subscribes && this.subscribes.forEach((sub) => {
@@ -38,12 +43,19 @@
 
       this.blazeTable = Blaze.renderWithData(
         Template.tabular,
-        () => ({
-          table: TabularTables[this.table],
-          class: 'table table-condensed table-striped table-bordered table-hover dataTable',
-          responsive: true,
-          autoWidth: false,
-        }),
+        () => {
+          const options = {
+            table: TabularTables[this.table],
+            class: 'table table-condensed table-striped table-bordered table-hover dataTable',
+            responsive: true,
+            autoWidth: false,
+          };
+          if (this.groupBy) {
+            const group = Session.get('selectedGroup');
+            options.selector = group ? { [this.groupBy] : group } : {};
+          }
+          return options;
+        },
         document.getElementById('table-'+this.id)
       );
     },

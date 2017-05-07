@@ -11,6 +11,7 @@ import WidgetProgressBox from './widgets/ProgressBox.vue';
 import Modal from './Modal.vue';
 import Crud from './Crud.vue';
 import TabularTable from './TabularTable.vue';
+import GroupList from './GroupList.vue';
 
 Vue.component('box', Box);
 Vue.component('tabs', Tabs);
@@ -21,3 +22,4 @@ Vue.component('widget-progress-box', WidgetProgressBox);
 Vue.component('modal', Modal);
 Vue.component('crud', Crud);
 Vue.component('tabular-table', TabularTable);
+Vue.component('group-list', GroupList);
