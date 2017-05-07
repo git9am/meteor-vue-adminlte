@@ -42,11 +42,8 @@
 </template>
 
 <script>
-  import FormGroup from './form/FormGroup.vue';
-
   export default{
     name: 'group-list',
-    components: { FormGroup },
     props: {
       title: String,
       groups: Array,
