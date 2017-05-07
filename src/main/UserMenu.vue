@@ -20,7 +20,16 @@
           </router-link>
         </div>
         <div class="pull-right">
-          <button @click="logout" class="btn btn-default btn-flat">{{ this.loading ? 'Logging Out...' : $t('sign_out')}}</button>
+          <button @click="logout" class="btn btn-default btn-flat">{{$t('sign_out')}}</button>
+        </div>
+        <div class="modal fade" id="logging-out">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Logging out...</h4>
+              </div>
+            </div>
+          </div>
         </div>
       </li>
     </ul>
@@ -40,13 +49,12 @@
     data () {
       return {
         route: this.$route.name,
-        loading: false,
       };
     },
     methods: {
       logout() {
         Meteor.logout();
-        this.loading = true;
+        $('#logging-out').modal('show');
       },
     },
     computed: {
