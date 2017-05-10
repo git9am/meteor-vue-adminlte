@@ -72,8 +72,12 @@
       );
     },
     beforeDestroy() {
-      Blaze.remove(this.insertForm);
-      Blaze.remove(this.updateForm);
+      if (this.insertForm) {
+        Blaze.remove(this.insertForm);
+      }
+      if (this.updateForm) {
+        Blaze.remove(this.updateForm);
+      }
     }
   };
 </script>
