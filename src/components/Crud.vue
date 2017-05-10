@@ -44,10 +44,15 @@
       },
     },
     mounted() {
+      const collection = MeteorCollections[this.table];
+      if (!collection._c2 || !collection._c2._simpleSchema) {
+        return;
+      }
+
       this.insertForm = Blaze.renderWithData(
         Template.form,
         () => ({
-          collection: MeteorCollections[this.table],
+          collection,
           id: 'form-insert-'+this.id,
           type: 'method',
           meteormethod: 'insert' + this.table,
@@ -57,7 +62,7 @@
       this.updateForm = Blaze.renderWithData(
         Template.form,
         () => ({
-          collection: MeteorCollections[this.table],
+          collection,
           id: 'form-update-'+this.id,
           doc: MeteorCollections[this.table].findOne(Session.get('selectedId')),
           type: 'method-update',
