@@ -10,11 +10,11 @@ import ContentHeader from './main/ContentHeader.vue';
 import './components';
 
 Vue.use(VueMeteorTracker);
-Vue.config.meteor.subscribe = function(...args) {
+Vue.config.meteor.subscribe = function (...args) {
   return subsCache.subscribe(...args);
 };
 
-export default function(opts) {
+export default function (opts) {
   new Vue({
     i18n: i18n(opts.i18n),
     router: router(opts.routes, opts.beforeEach),
@@ -23,10 +23,10 @@ export default function(opts) {
       UserMenu,
       ContentHeader,
     },
-    meteor: {
-      data: {
-        menus: opts.menus,
-      },
+    data() {
+      return {
+        menus: opts.menus(),
+      };
     },
     methods: {
       toggleSidebar() {
@@ -39,8 +39,8 @@ export default function(opts) {
       },
     },
     mounted() {
-      $.AdminLTE.layout.fix()
-      $.AdminLTE.controlSidebar.activate()
+      $.AdminLTE.layout.fix();
+      $.AdminLTE.controlSidebar.activate();
     },
   }).$mount('#app');
 }
