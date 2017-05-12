@@ -37,7 +37,7 @@
         <ul v-if="menu.subs" class="treeview-menu" :class="{ 'menu-open': route.indexOf(menu.name) > -1 }">
           <li v-for="sub in menu.subs" :class="{ active: `${menu.name}.${sub.name}` === route }">
             <router-link :to="{ name: `${menu.name}.${sub.name}` }">
-              <i class="fa fa-circle-o"></i> {{$t(`menus.${menu.name}.${sub.name}`)}}
+              <i class="fa fa-circle-o"></i> {{$t(`menus.${menu.name}_${sub.name}`)}}
             </router-link>
           </li>
         </ul>
