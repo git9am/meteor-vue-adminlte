@@ -20,7 +20,7 @@
     </form> -->
     <ul class="sidebar-menu">
       <li class="header">{{$t('sidebar.main')}}</li>
-      <li v-for="menu in menus" class="treeview" :class="{ active: route.indexOf(menu.name) > -1 }">
+      <li v-for="menu in menus" class="treeview" :class="{ current: route.indexOf(menu.name) > -1 }">
         <router-link v-if="!menu.subs" :to="{ name: menu.name }">
           <i :class="menu.icon"></i>
           <span>{{$t('menus.'+menu.name)}}</span>
@@ -35,7 +35,7 @@
         </a>
 
         <ul v-if="menu.subs" class="treeview-menu" :class="{ 'menu-open': route.indexOf(menu.name) > -1 }">
-          <li v-for="sub in menu.subs" :class="{ active: `${menu.name}.${sub.name}` === route }">
+          <li v-for="sub in menu.subs" :class="{ current: `${menu.name}.${sub.name}` === route }">
             <router-link :to="{ name: `${menu.name}.${sub.name}` }">
               <i class="fa fa-circle-o"></i> {{$t(`menus.${menu.name}_${sub.name}`)}}
             </router-link>
