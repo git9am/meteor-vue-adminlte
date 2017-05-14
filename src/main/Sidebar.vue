@@ -41,7 +41,7 @@
           :class="{
             'menu-open': route.indexOf(menu.name) > -1
           }"
-          :style="'disply: ' + (route.indexOf(menu.name) > -1 ? 'block' : 'none')"
+          :style="{ display: route.indexOf(menu.name) > -1 ? 'block' : 'none' }"
         >
           <li v-for="sub in menu.subs" :class="{ current: `${menu.name}.${sub.name}` === route }">
             <router-link :to="{ name: `${menu.name}.${sub.name}` }">
