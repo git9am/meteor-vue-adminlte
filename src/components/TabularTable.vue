@@ -13,7 +13,8 @@
           <i class="fa fa-plus"></i> {{$t('btn.add')}}
         </button>
       </div>
-      <div :id="'table-'+id" style="overflow-x: scroll"></div>
+      <slot name="actions"></slot>
+      <div :id="'table-'+id" style="overflow-x: scroll; clear: both;"></div>
     </box>
 
     <crud :id="id" :table="table" :title="name" />
