@@ -14,7 +14,7 @@
         </button>
       </div>
       <slot name="actions"></slot>
-      <div :id="'table-'+id" style="overflow-x: scroll; clear: both;"></div>
+      <div :id="'table-'+id" style="overflow-x: scroll"></div>
     </box>
 
     <crud :id="id" :table="table" :title="name" />
@@ -51,9 +51,13 @@
             responsive: true,
             autoWidth: false,
           };
+          const selector = Session.get('selector') || {};
           if (this.groupBy) {
             const group = Session.get('selectedGroup');
-            options.selector = group ? { [this.groupBy] : group } : {};
+            if (group) {
+              selector[this.groupBy] = group;
+            }
+            options.selector = selector;
           }
           return options;
         },
