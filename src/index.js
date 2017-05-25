@@ -23,10 +23,12 @@ export default function (opts) {
       UserMenu,
       ContentHeader,
     },
-    data() {
-      return {
-        menus: opts.menus(),
-      };
+    meteor: {
+      data: {
+        menus() {
+          return opts.menus();
+        },
+      },
     },
     methods: {
       toggleSidebar() {
