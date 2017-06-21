@@ -47,7 +47,7 @@
       const collection = MeteorCollections[this.table];
       let schema;
       if (collection._formSchema) {
-        schema = collection._formSchema;
+        schema = collection._formSchema[this.table];
       } else if (!collection._c2 || !collection._c2._simpleSchema) {
         return;
       }
