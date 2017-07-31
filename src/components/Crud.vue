@@ -65,15 +65,23 @@
       );
       this.updateForm = Blaze.renderWithData(
         Template.form,
-        () => ({
-          schema,
-          collection: !schema && collection,
-          id: 'form-update-'+this.id,
-          doc: MeteorCollections[this.table].findOne(Session.get('selectedId')),
-          type: 'method-update',
-          meteormethod: 'update' + this.table,
-        }),
-        document.getElementById('update-' + this.id)
+        () => {
+          let selectedId = Session.get('selectedId');
+          if (selectedId.indexOf('ObjectID') > -1) {
+            const objectId = selectedId.substr(10, 24);
+            selectedId = new Mongo.Collection.ObjectID(objectId);
+          }
+
+          return {
+            schema,
+            collection: !schema && collection,
+            id: 'form-update-'+this.id,
+            doc: MeteorCollections[this.table].findOne(selectedId),
+            type: 'method-update',
+            meteormethod: 'update' + this.table,
+          };
+        },
+        document.getElementById('update-' + this.id);
       );
     },
     beforeDestroy() {
