@@ -81,7 +81,7 @@
             meteormethod: 'update' + this.table,
           };
         },
-        document.getElementById('update-' + this.id);
+        document.getElementById('update-' + this.id)
       );
     },
     beforeDestroy() {
