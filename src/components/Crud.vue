@@ -67,7 +67,7 @@
         Template.form,
         () => {
           let selectedId = Session.get('selectedId');
-          if (selectedId.indexOf('ObjectID') > -1) {
+          if (selectedId && selectedId.indexOf('ObjectID') > -1) {
             const objectId = selectedId.substr(10, 24);
             selectedId = new Mongo.Collection.ObjectID(objectId);
           }
