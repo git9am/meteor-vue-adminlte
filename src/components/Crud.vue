@@ -40,7 +40,13 @@
     props: ['id', 'table', 'title'],
     methods: {
       remove() {
-        Meteor.call('remove' + this.table, Session.get('selectedId'));
+        let selectedId = Session.get('selectedId');
+        if (selectedId && selectedId.indexOf('ObjectID') > -1) {
+          const objectId = selectedId.substr(10, 24);
+          selectedId = new Mongo.Collection.ObjectID(objectId);
+        }
+
+        Meteor.call('remove' + this.table, selectedId);
       },
     },
     mounted() {
