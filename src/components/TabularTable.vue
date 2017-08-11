@@ -10,7 +10,7 @@
           data-toggle="modal"
           :data-target="'#modal-add-'+id"
         >
-          <i class="fa fa-plus"></i> {{$t('btn.add')}}
+          <i class="fa fa-plus"></i> {{label}}
         </button>
       </div>
       <slot name="actions"></slot>
@@ -36,6 +36,7 @@
       addable: Boolean,
       subscribes: Array,
       groupBy: String,
+      label: String,
     },
     mounted() {
       this.subscribes && this.subscribes.forEach((sub) => {
