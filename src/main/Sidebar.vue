@@ -71,7 +71,7 @@
       };
     },
     computed: {
-      username () { return this.user.username || '(username)'; },
+      username () { return (this.user.profile && this.user.profile.name) || '(name)'; },
       subtitle () { return (this.user.emails && this.user.emails[0].address) || '(subtitle)'; },
       photo () { return this.user.profile && this.user.profile.photoUrl; },
     },

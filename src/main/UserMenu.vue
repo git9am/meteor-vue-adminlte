@@ -49,7 +49,7 @@
       },
     },
     computed: {
-      username () { return this.user.username || '(username)'; },
+      username () { return (this.user.profile && this.user.profile.name) || '(name)'; },
       title () { return (this.user.profile && this.user.profile.title) || '(title)'; },
       subtitle () { return (this.user.emails && this.user.emails[0].address) || '(subtitle)'; },
       photo () { return this.user.profile && this.user.profile.photoUrl; },
