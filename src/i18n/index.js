@@ -5,18 +5,21 @@ Vue.use(VueI18n);
 
 export default function i18n(messages) {
   return new VueI18n({
-    locale: 'en',
+    locale: 'cn',
     messages,
   });
 };
 
-// const storage = window.localStorage
-// const index = storage.getItem('indexLang')
-// if (index == '0') {
-//   Vue.config.lang = 'en'
-// } else if (index == '1') {
-//   Vue.config.lang = 'cn'
-// } else {
-//   Vue.config.lang = 'en'
-// }
-// Session.set('lang', index)
+const storage = window.localStorage;
+const index = storage.getItem('indexLang');
+if (index) {
+  if (index === '0') {
+    Vue.config.lang = 'en';
+  }
+  if (index === '1') {
+    Vue.config.lang = 'cn';
+  }
+} else {
+  Vue.config.lang = 'cn';
+}
+Session.set('lang', index);
