@@ -20,13 +20,13 @@
     name: 'content-header',
     data () {
       return {
-        title: this.$route.name.replace('.', '_'),
+        title: this.$route.name && this.$route.name.replace('.', '_'),
         subtitle: ' '
       };
     },
     watch: {
       $route () {
-        this.title = this.$route.name.replace('.', '_');
+        this.title = this.$route.name && this.$route.name.replace('.', '_');
       }
     }
   };
