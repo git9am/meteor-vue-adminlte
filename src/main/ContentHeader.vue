@@ -8,10 +8,10 @@
       {{$t('menus.'+title)}}
       <small>{{subtitle}}</small>
     </h1>
-    <ol class="breadcrumb">
+    <!-- <ol class="breadcrumb">
       <li><router-link :to="{ name: 'rentManagement_renting' }"><i class="fa fa-dashboard"></i>{{$t('breadcrumb_home')}}</router-link></li>
       <li class="active">{{$t('menus.'+title)}}</li>
-    </ol>
+    </ol> -->
   </section>
 </template>
 
