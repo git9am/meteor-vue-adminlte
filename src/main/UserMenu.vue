@@ -44,7 +44,7 @@
     },
     methods: {
       logout() {
-        console.log(route);
+        console.log(this.route);
         // Meteor.logout();
         $('#logging-out').modal('show');
       },
