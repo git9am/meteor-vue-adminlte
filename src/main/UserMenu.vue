@@ -20,7 +20,7 @@
           </router-link>
         </div>
         <div class="pull-right">
-          <router-link class="btn btn-default btn-flat" :to="{ name: '/' }">
+          <router-link class="btn btn-default btn-flat" :to="{ name: 'rentManagement_renting', path: '/' }">
             <!-- <button @click="logout" class="btn btn-default btn-flat">{{$t('sign_out')}}</button> -->
           </router-link>
         </div>
