@@ -45,6 +45,7 @@
     methods: {
       logout() {
         this.route = '';
+        console.log(this.route);
         if (this.route === '') {
           Meteor.logout();
           $('#logging-out').modal('show');
