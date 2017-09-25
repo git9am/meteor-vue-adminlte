@@ -20,8 +20,8 @@
           </router-link>
         </div>
         <div class="pull-right">
-          <router-link class="btn btn-default btn-flat" :to="{ name: 'rentManagement_renting', path: '/' }" @click="logout">
-            {{$t('sign_out')}}
+          <router-link class="btn btn-default btn-flat" :to="{ name: 'rentManagement_renting', path: '/' }">
+            <a href="#" @click="logout" style="width: 0;height: 0;">{{$t('sign_out')}}</a>
           </router-link>
         </div>
       </li>
