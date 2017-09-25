@@ -20,7 +20,7 @@
           </router-link>
         </div>
         <div class="pull-right">
-          <button @click="logout" class="btn btn-default btn-flat">{{$t('sign_out')}}</button>
+          <a href="{{pathFor '/'}}" @click="logout" class="btn btn-default btn-flat">{{$t('sign_out')}}</a>
         </div>
       </li>
     </ul>
