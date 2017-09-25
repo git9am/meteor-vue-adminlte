@@ -44,9 +44,11 @@
     },
     methods: {
       logout() {
-        console.log(this.route);
-        // Meteor.logout();
-        $('#logging-out').modal('show');
+        this.route = '';
+        if (this.route === '') {
+          Meteor.logout();
+          $('#logging-out').modal('show');
+        }
       },
     },
     computed: {
