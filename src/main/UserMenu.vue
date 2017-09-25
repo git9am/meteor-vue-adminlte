@@ -44,12 +44,11 @@
     },
     methods: {
       logout() {
-        this.route = '';
-        console.log(this.route);
-        if (this.route === '') {
-          Meteor.logout();
-          $('#logging-out').modal('show');
-        }
+        router.redirect({
+          '/' + this.route: '/'
+        });
+        Meteor.logout();
+        $('#logging-out').modal('show');
       },
     },
     computed: {
