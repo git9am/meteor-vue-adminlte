@@ -21,7 +21,7 @@
         </div>
         <div class="pull-right">
           <router-link class="btn btn-default btn-flat" :to="{ name: '' }">
-            <button @click="logout" class="btn btn-default btn-flat">{{$t('sign_out')}}</button>
+            <!-- <button @click="logout" class="btn btn-default btn-flat">{{$t('sign_out')}}</button> -->
           </router-link>
         </div>
       </li>
