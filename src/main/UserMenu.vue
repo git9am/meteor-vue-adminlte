@@ -52,7 +52,7 @@
     },
     computed: {
       username () { return (this.user.profile && this.user.profile.name) || '(name)'; },
-      title () { return (this.user.profile && this.user.profile.title) || '(title)'; },
+      title () { return (this.user.profile && this.user.profile.titles && this.user.profile.titles[0]) || '(title)'; },
       subtitle () { return (this.user.emails && this.user.emails[0].address) || '(subtitle)'; },
       photo () { return this.user.profile && this.user.profile.photoUrl; },
     },
