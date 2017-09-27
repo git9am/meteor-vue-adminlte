@@ -10,15 +10,12 @@ export default function i18n(messages) {
   if (index) {
     if (index === '0') {
       lang = 'en';
-      // Vue.config.lang = 'en';
     }
     if (index === '1') {
       lang = 'cn';
-      // Vue.config.lang = 'cn';
     }
   } else {
-    lang = 'cn';
-    // Vue.config.lang = 'cn';
+    lang = 'en';
   }
   Session.set('lang', index);
 
