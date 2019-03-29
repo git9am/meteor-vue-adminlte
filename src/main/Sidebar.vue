@@ -24,11 +24,17 @@
         active: route && route.indexOf(menu.name) > -1,
         current: route && route.indexOf(menu.name) > -1,
       }">
-        <router-link v-if="!menu.subs" :to="{ name: menu.name }">
+        
+        <router-link v-if="!menu.subs && !menu.href" :to="{ name: menu.name }">
           <i :class="menu.icon"></i>
           <span>{{$t('menus.'+menu.name)}}</span>
         </router-link>
 
+        <a v-if="menu.href" target="_blank" :href="menu.href">
+          <i :class="menu.icon"></i>
+          <span>{{$t('menus.'+menu.name)}}</span>
+        </a>
+        
         <a v-if="menu.subs" href="#">
           <i :class="menu.icon"></i>
           <span>{{$t('menus.'+menu.name)}}</span>
@@ -55,30 +61,36 @@
 </template>
 
 <script>
-  export default {
-    name: 'sidebar',
-    props: ['menus'],
-    meteor: {
-      data: {
-        user() {
-          return Meteor.user() || {};
-        },
-      },
-    },
-    data() {
-      return {
-        route: this.$route.name,
-      };
-    },
-    computed: {
-      username () { return (this.user.profile && this.user.profile.name) || '(name)'; },
-      subtitle () { return (this.user.emails && this.user.emails[0].address) || '(subtitle)'; },
-      photo () { return this.user.profile && this.user.profile.photoUrl; },
-    },
-    watch: {
-      $route () {
-        this.route = this.$route.name;
+export default {
+  name: "sidebar",
+  props: ["menus"],
+  meteor: {
+    data: {
+      user() {
+        return Meteor.user() || {};
       }
     }
-  };
+  },
+  data() {
+    return {
+      route: this.$route.name
+    };
+  },
+  computed: {
+    username() {
+      return (this.user.profile && this.user.profile.name) || "(name)";
+    },
+    subtitle() {
+      return (this.user.emails && this.user.emails[0].address) || "(subtitle)";
+    },
+    photo() {
+      return this.user.profile && this.user.profile.photoUrl;
+    }
+  },
+  watch: {
+    $route() {
+      this.route = this.$route.name;
+    }
+  }
+};
 </script>
